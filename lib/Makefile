@@ -2,6 +2,9 @@
 #
 # Makefile for some libs needed in the kernel.
 #
+ccflags-y += -O3
+obj-$(CONFIG_LZ4KD_COMPRESS) += lz4kd_encode.o
+obj-$(CONFIG_LZ4KD_DECOMPRESS) += lz4kd_decode.o
 
 ifdef CONFIG_FUNCTION_TRACER
 ORIG_CFLAGS := $(KBUILD_CFLAGS)
