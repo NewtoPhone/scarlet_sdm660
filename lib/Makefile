@@ -2,9 +2,6 @@
 #
 # Makefile for some libs needed in the kernel.
 #
-ccflags-y += -O3
-obj-$(CONFIG_LZ4KD_COMPRESS) += lz4kd_encode.o
-obj-$(CONFIG_LZ4KD_DECOMPRESS) += lz4kd_decode.o
 
 ifdef CONFIG_FUNCTION_TRACER
 ORIG_CFLAGS := $(KBUILD_CFLAGS)
@@ -153,7 +150,8 @@ obj-$(CONFIG_ZSTD_COMPRESS) += zstd/
 obj-$(CONFIG_ZSTD_DECOMPRESS) += zstd/
 obj-$(CONFIG_XZ_DEC) += xz/
 obj-$(CONFIG_RAID6_PQ) += raid6/
-
+obj-$(CONFIG_LZ4KD_COMPRESS) += lz4kd_encode.o
+obj-$(CONFIG_LZ4KD_DECOMPRESS) += lz4kd_decode.o
 lib-$(CONFIG_DECOMPRESS_GZIP) += decompress_inflate.o
 lib-$(CONFIG_DECOMPRESS_BZIP2) += decompress_bunzip2.o
 lib-$(CONFIG_DECOMPRESS_LZMA) += decompress_unlzma.o
